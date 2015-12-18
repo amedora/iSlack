@@ -1,0 +1,3 @@
+[submodule "Source/Contrib/iRacingSdkWrapper"]
+	path = Source/Contrib/iRacingSdkWrapper
+	url = https://github.com/NickThissen/iRacingSdkWrapper.git

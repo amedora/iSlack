@@ -1,0 +1,69 @@
+﻿<Controls:MetroWindow x:Class="iSlack.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:iSlack"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        Title="MainWindow" Height="436.186" Width="397.823">
+    <Grid VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="groupBox" Header="Slack" Margin="8,8,113,8">
+            <Grid HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="label" Content="Webhook URL" Margin="8"/>
+                <Label x:Name="label1" Content="User Name" Grid.Row="1" Margin="8"/>
+                <Label x:Name="label2" Content="Channel" Grid.Row="2" RenderTransformOrigin="-0.546,0.277" Margin="8"/>
+                <TextBox x:Name="tbxURL" Grid.Column="1" TextWrapping="Wrap" Text="TextBox" Margin="8"/>
+                <TextBox x:Name="tbxUserName" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" Margin="8"/>
+                <TextBox x:Name="tbxChannel" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" Margin="8"/>
+                <Button x:Name="button" Content="Test This Setting" Grid.Column="1" Grid.Row="3" Height="Auto" Margin="8"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox1" Header="Notifications" Grid.Row="1" Margin="8,8,8,0" VerticalAlignment="Top">
+            <Grid HorizontalAlignment="Left" Width="374" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="label3" Content="Ssession" Margin="8"/>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="292" Orientation="Horizontal" Margin="0,3,-82,3">
+                    <CheckBox x:Name="checkBox" Content="Official" Margin="8"/>
+                    <CheckBox x:Name="checkBox1" Content="Hosted" Margin="8"/>
+                    <CheckBox x:Name="checkBox2" Content="Private" Margin="8"/>
+                </StackPanel>
+                <Label x:Name="label4" Content="Session Type" HorizontalAlignment="Left" Margin="8" Grid.Row="1" VerticalAlignment="Top"/>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Width="247">
+                    <CheckBox x:Name="checkBox3" Content="Race" Margin="8"/>
+                    <CheckBox x:Name="checkBox4" Content="Qualify" Margin="8"/>
+                    <CheckBox x:Name="checkBox5" Content="Practice" Margin="8"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Top">
+            <Button x:Name="button1" Content="Save" Height="Auto" Margin="8" HorizontalAlignment="Right"/>
+            <Button x:Name="button2" Content="Cancel" Height="Auto" Margin="8" HorizontalAlignment="Right"/>
+        </StackPanel>
+    </Grid>
+</Controls:MetroWindow>
