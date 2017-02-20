@@ -7,6 +7,7 @@ using iRacingSdkWrapper;
 using iSlack.Extensions;
 using System.Reactive.Linq;
 using Xunit;
+using System.IO;
 
 namespace iSlack.Test
 {
@@ -45,6 +46,34 @@ namespace iSlack.Test
  SessionID: 0
  SubSessionID: 0";
             wrapper.RaiseSessionInfoUpdated(new SdkWrapper.SessionInfoUpdatedEventArgs(sessioninfo, 0));
+        }
+
+        [Fact]
+        public void YamlDumper()
+        {
+            var wrapper = new SdkWrapper();
+            wrapper.SessionInfoUpdatedAsObservable().Subscribe(e =>
+            {
+                var trackName = e.SessionInfo["WeekendInfo"]["TrackName"].Value;
+                trackName.Is("southboston");
+
+                File.WriteAllText(MakeYamlFileName(), e.SessionInfo.Yaml);
+            });
+
+            string sessioninfo = @"WeekendInfo:
+ TrackName: southboston
+ TrackID: 14
+ TrackLength: 0.59 km
+ SeriesID: 0
+ SeasonID: 0
+ SessionID: 0
+ SubSessionID: 0";
+            wrapper.RaiseSessionInfoUpdated(new SdkWrapper.SessionInfoUpdatedEventArgs(sessioninfo, 0));
+        }
+
+        private string MakeYamlFileName()
+        {
+            return DateTime.Now.ToString("yyyyMMdd-HHmmss") + ".txt";
         }
     }
 }
